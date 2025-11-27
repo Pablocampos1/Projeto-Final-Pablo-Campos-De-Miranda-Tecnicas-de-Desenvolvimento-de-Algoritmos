@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value="Cadastro de Cliente - Sistema Loja"/>
+        <attribute name="authors" value="Eliel"/>
+        <attribute name="about" value="Fluxograma do processo de cadastro de cliente baseado no projeto PHP"/>
+        <attribute name="saved" value="2025-11-27 12:00:00"/>
+    </attributes>
+
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+
+            <!-- Declaração das variáveis -->
+            <declare name="nome" type="String"/>
+            <declare name="telefone" type="String"/>
+            <declare name="email" type="String"/>
+            <declare name="bancoOnline" type="Boolean"/>
+
+            <!-- Interface do sistema -->
+            <output expression="&quot;--- SISTEMA DE CADASTRO DE CLIENTES ---&quot;" newline="True"/>
+
+            <output expression="&quot;Digite o nome do cliente:&quot;" newline="True"/>
+            <input variable="nome"/>
+
+            <output expression="&quot;Digite o telefone:&quot;" newline="True"/>
+            <input variable="telefone"/>
+
+            <output expression="&quot;Digite o email:&quot;" newline="True"/>
+            <input variable="email"/>
+
+            <comment text="Validação: Nome é obrigatório no cadastro"/>
+
+            <!-- Validação -->
+            <if expression="nome == &quot;&quot;">
+                <then>
+                    <output expression="&quot;ERRO: O nome do cliente é obrigatório!&quot;" newline="True"/>
+                    <output expression="&quot;Retornando ao formulário...&quot;" newline="True"/>
+                </then>
+
+                <else>
+                    <comment text="Simulação da conexão com o banco e execução do INSERT"/>
+                    <assign variable="bancoOnline" expression="true"/>
+
+                    <if expression="bancoOnline">
+                        <then>
+                            <output expression="&quot;Conectando ao Banco 'matias_store'...&quot;" newline="True"/>
+                            <output expression="&quot;Executando: INSERT INTO cliente (nome, telefone, email)...&quot;" newline="True"/>
+                            <output expression="&quot;SUCESSO: Cliente cadastrado!&quot;" newline="True"/>
+                            <output expression="&quot;Redirecionando para listar-cliente.php...&quot;" newline="True"/>
+                        </then>
+
+                        <else>
+                            <output expression="&quot;FALHA: Não foi possível conectar ao banco de dados.&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+
+        </body>
+    </function>
+</flowgorithm>

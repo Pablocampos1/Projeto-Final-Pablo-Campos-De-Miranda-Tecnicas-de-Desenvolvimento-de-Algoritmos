@@ -1,0 +1,47 @@
+Algoritmo "Matias_Store_Cadastro_Cliente"
+// Disciplina: Técnicas de Desenvolvimento de Algoritmos
+// Descrição: Lógica de cadastro de cliente com validação e simulação de banco de dados
+// Sistema: Matias Store
+// Autor: Pablo Campos de Miranda
+
+Var
+nome, telefone, email : caractere
+id_gerado : inteiro
+sucesso_gravacao : logico
+
+Inicio
+
+// Entrada de Dados
+Escreva("Informe o nome do cliente: ")
+Leia(nome)
+
+Escreva("Informe o telefone: ")
+Leia(telefone)
+
+Escreva("Informe o e-mail: ")
+Leia(email)
+
+
+// Processamento e Validação
+Se (nome = "") entao
+      Escreval("Erro: O nome do cliente é obrigatório.")
+Senao
+
+      // Simulação do ID gerado automaticamente no banco
+      id_gerado <- 1  
+
+      // Simulação da execução do SQL INSERT
+      // No sistema real, isso ocorreria em salvar-cliente.php
+      sucesso_gravacao <- Verdadeiro
+
+      Se (sucesso_gravacao = Verdadeiro) entao
+            Escreval("Sucesso: Cliente registrado no banco de dados.")
+            Escreval("Código gerado automaticamente: ", id_gerado)
+            Escreval("Redirecionando para listar-cliente.php...")
+      Senao
+            Escreval("Falha: Erro ao conectar ao banco de dados.")
+      FimSe
+
+FimSe
+
+Fimalgoritmo
